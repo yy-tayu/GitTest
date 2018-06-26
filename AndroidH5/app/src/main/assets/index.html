@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <title></title>
+</head>
+<body>
+<img id="head_background" src="img/parking.png" />
+<script>
+    var json = window.jsons.getJson();
+    var infos = eval(json);
+    for(var i = 0; i < infos.length; i++) {
+        info = infos[i];
+        var img = info.icon;
+        var userName= info.title;
+        var content = info.content;
+        $("#head_background").after("<div ><div id='nav'><img src=" + img + " /></div><div id='info'><div id='userName'>" + userName + "</div><p id='content'>" + content + "</p></div></div>");
+        $("#userName").click(
+            function() {
+                var str = $(this).text();
+                window.jsons.ShowToast(str);
+            }
+        )
+        $("#content").click(
+            function() {
+                var str = $(this).text();
+                window.jsons.ShowToast(str);
+            }
+        )
+
+    }
+    function changeColor(){
+       return  "这搞毛";
+    }
+</script>
+</body>
+</html>
